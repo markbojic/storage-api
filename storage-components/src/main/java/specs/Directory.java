@@ -2,20 +2,58 @@ package specs;
 
 public interface Directory {
 	
+	/**
+	 * Creates new directory on given path.
+	 * 
+	 * @param name Directory name
+	 * @param path Dir's path on the storage
+	 */
 	public void createDirectory(String name, String path);
 	
+	/**
+	 * Deletes directory on given path.
+	 * 
+	 * @param path Dir's path on the storage
+	 */
 	public void deleteDirectory(String path);
 	
-	public void uploadDirectory(String path);
+	/**
+	 * Uploads directory from chosen path to given path on storage.
+	 * 
+	 * @param selectedPath Path of the chosen directory
+	 * @param destinationPath Path on the storage where directory will be uploaded to
+	 */
+	public void uploadDirectory(String selectedPath, String destinationPath);
 	
-	public void downloadDirectory(String path);
+	/**
+	 * Downloads directory to given path.
+	 * 
+	 * @param selectedPath Path of the directory on storage
+	 * @param destinationPath Path where directory will be downloaded to
+	 */
+	public void downloadDirectory(String selectedPath, String destinationPath);
 	
-	public void listAllFiles();
-	//Za listanje celog starage-a, mozda ne treba name
+	/**
+	 * Prints names of all files from given directory and it's sub directories
+	 * 
+	 * @param path Path of the chosen directory
+	 */
+	public void listAllFiles(String path);
 	
-	public void listFiles(String name, String extension);
-	//Za listanje fajlova sa specificiranom ext ili ukoliko je prazno listaj sve fajlove sa zadatog direktorijuma.
+	/**
+	 * Prints names of files with given extension from given directory
+	 * If extension is not given then function should print all files from given directory
+	 * 
+	 * @param path Path of the chosen directory
+	 * @param extension Chosen extension for display
+	 */
+	public void listFiles(String path, String extension);
 	
-	public void listDirectories(String name);
+	/**
+	 * Prints names of all directories from chosen path
+	 * 
+	 * @param path Path of the chosen directory
+	 */
+	public void listDirectories(String path);
 
 }
