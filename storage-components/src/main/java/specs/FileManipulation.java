@@ -1,15 +1,14 @@
 package specs;
 
-public interface File {
+public interface FileManipulation {
 	
 	/**
 	 * Creates new file with given extension on given path.
 	 * 
 	 * @param name File's name
-	 * @param path File's path
-	 * @param fileExtension File's extension
+	 * @param path Path of the directory where file will be stored
 	 */
-	public void createFile(String name, String path, String fileExtension);
+	public void createFile(String name, String path);
 
 	/**
 	 * Deletes file on given path.
@@ -23,9 +22,8 @@ public interface File {
 	 * 
 	 * @param selectedPath Path of chosen file
 	 * @param destinationPath Path where file will be stored
-	 * @param fileExtension Chosen file's extension
 	 */
-	public void uploadFile(String selectedPath, String destinationPath, String fileExtension);
+	public void uploadFile(String selectedPath, String destinationPath);
 	
 	/**
 	 * Downloads file to given path.

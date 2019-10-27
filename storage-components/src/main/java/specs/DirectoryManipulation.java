@@ -1,6 +1,6 @@
 package specs;
 
-public interface Directory {
+public interface DirectoryManipulation {
 	
 	/**
 	 * Creates new directory on given path.
