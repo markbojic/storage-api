@@ -42,7 +42,7 @@ public interface DirectoryManipulation {
 	
 	/**
 	 * Prints names of files with given extension from given directory
-	 * If extension is not given then function should print all files from given directory
+	 * If @param extension equals "all" then function should print all files from given directory
 	 * 
 	 * @param path Path of the chosen directory
 	 * @param extension Chosen extension for display

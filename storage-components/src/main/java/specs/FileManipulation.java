@@ -3,7 +3,7 @@ package specs;
 public interface FileManipulation {
 	
 	/**
-	 * Creates new file with given extension on given path.
+	 * Creates new file on given path.
 	 * 
 	 * @param name File's name
 	 * @param path Path of the directory where file will be stored
@@ -18,7 +18,7 @@ public interface FileManipulation {
 	public void deleteFile(String path);
 	
 	/**
-	 * Uploads file form selected path to desired path on storage.
+	 * Uploads file from selected path to desired path on storage.
 	 * 
 	 * @param selectedPath Path of chosen file
 	 * @param destinationPath Path where file will be stored
