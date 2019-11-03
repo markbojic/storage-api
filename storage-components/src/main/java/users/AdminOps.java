@@ -2,18 +2,29 @@ package users;
 
 public interface AdminOps {
 	
-	public void createUser(String username, String password, boolean[] privs);
-		// proveri da li admin ovo radi posto samo on moze
-		// doda u fajl sa userima
+	/**
+	 * Creates new user with given username, password and privileges for operations.
+	 * 
+	 * @param username Username of the user you wish to create
+	 * @param password Password of the user you wish to create
+	 * @param privs User's privileges for creating, deleting, uploading and downloading
+	 * @param root Root directory of the storage
+	 */
+	public void createUser(String username, String password, boolean[] privs, String root);
 
-	public void deleteUser(String username);
-		// proveri da li je admin ulogovan
-		// nadje u fajlu pa obrise
+	/**
+	 * Deletes user with given username.
+	 * 
+	 * @param username Username of the user you wish to delete
+	 * @param root Root directory of the storage
+	 */
+	public void deleteUser(String username, String root);
 	
-	public void listAllUsers();
-		// proveri da li je adm ulogovan
-	
-	// ovo radi samo pri prvom setovanju storage-a i stavi u neki fajl koji sacuva u storage-u
-	public void forbiddenExtensions(String[] extensions);
+	/**
+	 * Displays a list of all users.
+	 * 
+	 * @param root Root directory of the storage
+	 */
+	public void listAllUsers(String root);
 
 }
