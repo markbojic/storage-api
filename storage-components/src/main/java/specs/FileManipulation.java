@@ -1,5 +1,7 @@
 package specs;
 
+import java.util.ArrayList;
+
 import users.User;
 
 public interface FileManipulation {
@@ -38,5 +40,14 @@ public interface FileManipulation {
 	 * @param user Current user
 	 */
 	public void downloadFile(String selectedPath, String destinationPath, User user);
+	
+	/**
+	 * 
+	 * @param filePaths list of path to files waiting to be zipped
+	 * @param destinationPath path to where the files will be stored once zipped
+	 * @param user user who is calling the operation
+	 * @param zipName name of the zip archive
+	 */
+	public void uploadMultipleFilesZip(ArrayList<String> filePaths, String destinationPath, String zipName, User user);
 
 }
