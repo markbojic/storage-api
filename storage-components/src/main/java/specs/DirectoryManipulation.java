@@ -61,5 +61,13 @@ public interface DirectoryManipulation {
 	 * @param path Path of the chosen directory
 	 */
 	public void listDirectories(String path);
+	
+	/**
+	 * 
+	 * @param path local directory path
+	 * @param destination destination path
+	 * @param user Userwho uploads directory.zip
+	 */
+	public void uploadZipDirectory(String path, String destination, User user);
 
 }
