@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -188,6 +189,7 @@ public class User implements AdminOps {
 											String splitter[] = line.split("/");
 											if(splitter[0].equalsIgnoreCase(username)) {
 												System.out.println("Username taken!");
+												Files.deleteIfExists(Paths.get(c.getAbsolutePath()));
 												return;
 											}
 											line = reader.readLine();
@@ -196,9 +198,7 @@ public class User implements AdminOps {
 									} catch (IOException e) {
 										e.printStackTrace();
 									}
-									
 								}
-
 							}
 							if (!result.getHasMore()) {
 								break;
@@ -224,7 +224,14 @@ public class User implements AdminOps {
 							fos.close();
 							rewriteAccountLog(c, root, token);
 							System.out.println("User " + username + " created!");
-							Files.deleteIfExists(Paths.get(c.getAbsolutePath()));
+							PrintWriter writer;
+							try {
+								writer = new PrintWriter(c);
+								writer.print("");
+								writer.close();
+							} catch (FileNotFoundException e) {
+								e.printStackTrace();
+							}
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
@@ -296,10 +303,8 @@ public class User implements AdminOps {
 										reader = new BufferedReader(new FileReader(c.getAbsoluteFile()));
 										String line = reader.readLine();
 										while (line != null) {
-											System.out.println(line);
 											String splitter[] = line.split("/");
 											if(splitter[0].equalsIgnoreCase(username)) {
-												System.out.println("Username exists!");
 												exists = true;
 											}
 											line = reader.readLine();
@@ -325,13 +330,26 @@ public class User implements AdminOps {
 						e.printStackTrace();
 					}
 
+					if(exists == false)
+					{
+						System.out.println("No user with that name.");
+						return;
+					}
 						List<String> newContent;
 						try {
 							newContent = Files.lines(c.toPath()).filter(line -> !line.contains(username))
 									.collect(Collectors.toList());
 							Files.write(c.toPath(), newContent, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING);
 							rewriteAccountLog(c, root, token);
-							Files.deleteIfExists(Paths.get(c.getAbsolutePath()));
+							PrintWriter writer;
+							try {
+								writer = new PrintWriter(c);
+								writer.print("");
+								writer.close();
+							} catch (FileNotFoundException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
 							System.out.println("User " + username + " deleted!");
 					} catch (FileNotFoundException e) {
 						e.printStackTrace();
@@ -421,11 +439,15 @@ public class User implements AdminOps {
 					e.printStackTrace();
 				}
 
-						try {
-							Files.deleteIfExists(Paths.get(c.getAbsolutePath()));
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
+				PrintWriter writer;
+				try {
+					writer = new PrintWriter(c);
+					writer.print("");
+					writer.close();
+				} catch (FileNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				}
 		} else {
 			System.out.println("Only admin can do this!");
