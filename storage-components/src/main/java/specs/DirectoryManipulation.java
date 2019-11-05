@@ -40,15 +40,15 @@ public interface DirectoryManipulation {
 	public void downloadDirectory(String selectedPath, String destinationPath, User user);
 	
 	/**
-	 * Prints names of all files from given directory and it's sub directories
+	 * Prints names of all files from given directory and it's sub directories.
 	 * 
 	 * @param path Path of the chosen directory
 	 */
 	public void listAllFiles(String path);
 	
 	/**
-	 * Prints names of files with given extension from given directory
-	 * If @param extension equals "all" then function should print all files from given directory
+	 * Prints names of files with given extension from given directory.
+	 * If @param extension equals "all" then function should print all files from given directory.
 	 * 
 	 * @param path Path of the chosen directory
 	 * @param extension Chosen extension for display
@@ -56,18 +56,19 @@ public interface DirectoryManipulation {
 	public void listFiles(String path, String extension);
 	
 	/**
-	 * Prints names of all directories from chosen path
+	 * Prints names of all directories from chosen path.
 	 * 
 	 * @param path Path of the chosen directory
 	 */
 	public void listDirectories(String path);
 	
 	/**
+	 * This method zips and uploads directory.
 	 * 
-	 * @param path local directory path
-	 * @param destination destination path
-	 * @param user Userwho uploads directory.zip
+	 * @param selectedPath Path of the directory on disk
+	 * @param destinationPath Path where zipped directory will be uploaded
+	 * @param user Current user
 	 */
-	public void uploadZipDirectory(String path, String destination, User user);
+	public void uploadZipDirectory(String selectedPath, String destinationPath, User user);
 
 }

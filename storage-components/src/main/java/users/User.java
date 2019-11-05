@@ -169,7 +169,7 @@ public class User implements AdminOps {
 					}
 
 					OutputStream outputStream;
-					boolean exists = false;
+					//boolean exists = false;
 					try {
 						result = client.files().listFolder(root);
 						while (true) {
@@ -347,7 +347,6 @@ public class User implements AdminOps {
 								writer.print("");
 								writer.close();
 							} catch (FileNotFoundException e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
 							System.out.println("User " + username + " deleted!");
@@ -445,7 +444,6 @@ public class User implements AdminOps {
 					writer.print("");
 					writer.close();
 				} catch (FileNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				}

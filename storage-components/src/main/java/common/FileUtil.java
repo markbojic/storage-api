@@ -70,7 +70,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * This method zips the directory
+	 * This method zips the directory.
 	 * 
 	 * @param dir
 	 * @param zipDirName
@@ -106,7 +106,7 @@ public class FileUtil {
 	}
 
 	/**
-	 * This method populates all the files in a directory to a List
+	 * This method populates all the files in a directory to a List.
 	 * 
 	 * @param dir
 	 * @throws IOException

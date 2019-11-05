@@ -42,11 +42,12 @@ public interface FileManipulation {
 	public void downloadFile(String selectedPath, String destinationPath, User user);
 	
 	/**
+	 * Zips given files and uploads them.
 	 * 
-	 * @param filePaths list of path to files waiting to be zipped
-	 * @param destinationPath path to where the files will be stored once zipped
-	 * @param user user who is calling the operation
-	 * @param zipName name of the zip archive
+	 * @param filePaths List of paths to files waiting to be zipped
+	 * @param destinationPath Path to where the files will be stored once zipped
+	 * @param zipName Name of the zip archive
+	 * @param user Current user
 	 */
 	public void uploadMultipleFilesZip(ArrayList<String> filePaths, String destinationPath, String zipName, User user);
 
