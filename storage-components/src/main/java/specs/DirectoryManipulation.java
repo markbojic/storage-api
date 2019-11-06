@@ -1,6 +1,6 @@
 package specs;
 
-import users.User;
+import users.AbstractUser;
 
 public interface DirectoryManipulation {
 	
@@ -9,35 +9,35 @@ public interface DirectoryManipulation {
 	 * 
 	 * @param name Directory name
 	 * @param path Dir's path on the storage
-	 * @param user Current user
+	 * @param AbstractUser Current AbstractUser
 	 */
-	public void createDirectory(String name, String path, User user);
+	public void createDirectory(String name, String path, AbstractUser user);
 	
 	/**
 	 * Deletes directory on given path.
 	 * 
 	 * @param path Dir's path on the storage
-	 * @param user Current user
+	 * @param AbstractAbstractUser Current AbstractUser
 	 */
-	public void deleteDirectory(String path, User user);
+	public void deleteDirectory(String path, AbstractUser user);
 	
 	/**
 	 * Uploads directory from chosen path to given path on storage.
 	 * 
 	 * @param selectedPath Path of the chosen directory
 	 * @param destinationPath Path on the storage where directory will be uploaded to
-	 * @param user Current user
+	 * @param AbstractUser Current AbstractUser
 	 */
-	public void uploadDirectory(String selectedPath, String destinationPath, User user);
+	public void uploadDirectory(String selectedPath, String destinationPath, AbstractUser user);
 	
 	/**
 	 * Downloads directory to given path.
 	 * 
 	 * @param selectedPath Path of the directory on storage
 	 * @param destinationPath Path where directory will be downloaded to
-	 * @param user Current user
+	 * @param AbstractUser Current AbstractUser
 	 */
-	public void downloadDirectory(String selectedPath, String destinationPath, User user);
+	public void downloadDirectory(String selectedPath, String destinationPath, AbstractUser user);
 	
 	/**
 	 * Prints names of all files from given directory and it's sub directories.
@@ -67,8 +67,15 @@ public interface DirectoryManipulation {
 	 * 
 	 * @param selectedPath Path of the directory on disk
 	 * @param destinationPath Path where zipped directory will be uploaded
-	 * @param user Current user
+	 * @param AbstractUser Current AbstractUser
 	 */
-	public void uploadZipDirectory(String selectedPath, String destinationPath, User user);
+	public void uploadZipDirectory(String selectedPath, String destinationPath, AbstractUser user);
+	
+	/**
+	 * 
+	 * @param storageName name of the sotrage
+	 * @param user user who initiates the storage
+	 */
+	public void initStorage(String storageName, AbstractUser user);
 
 }

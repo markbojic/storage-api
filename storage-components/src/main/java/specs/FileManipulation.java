@@ -1,6 +1,6 @@
 package specs;
 
-import users.User;
+import users.AbstractUser;
 
 public interface FileManipulation {
 	
@@ -11,7 +11,7 @@ public interface FileManipulation {
 	 * @param path Path of the directory where file will be stored
 	 * @param user Current user
 	 */
-	public void createFile(String name, String path, User user);
+	public void createFile(String name, String path, AbstractUser user);
 
 	/**
 	 * Deletes file on given path.
@@ -19,7 +19,7 @@ public interface FileManipulation {
 	 * @param path
 	 * @param user Current user
 	 */
-	public void deleteFile(String path, User user);
+	public void deleteFile(String path, AbstractUser user);
 	
 	/**
 	 * Uploads file from selected path to desired path on storage.
@@ -28,7 +28,7 @@ public interface FileManipulation {
 	 * @param destinationPath Path where file will be stored
 	 * @param user Current user
 	 */
-	public void uploadFile(String selectedPath, String destinationPath, User user);
+	public void uploadFile(String selectedPath, String destinationPath, AbstractUser user);
 	
 	/**
 	 * Downloads file to given path.
@@ -37,7 +37,7 @@ public interface FileManipulation {
 	 * @param destinationPath Download file on this path
 	 * @param user Current user
 	 */
-	public void downloadFile(String selectedPath, String destinationPath, User user);
+	public void downloadFile(String selectedPath, String destinationPath, AbstractUser user);
 	
 	/**
 	 * Zips given files and uploads them.
@@ -47,6 +47,6 @@ public interface FileManipulation {
 	 * @param zipName Name of the zip archive
 	 * @param user Current user
 	 */
-	public void uploadMultipleFilesZip(String[] filePaths, String destinationPath, String zipName, User user);
+	public void uploadMultipleFilesZip(String[] filePaths, String destinationPath, String zipName, AbstractUser user);
 
 }
