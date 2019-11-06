@@ -25,7 +25,7 @@ public class FileUtil {
 			File zipFile = new File(destination + File.separator + zipName + ".zip");
 			FileOutputStream fos = new FileOutputStream(zipFile);
 			ZipOutputStream zos = new ZipOutputStream(fos);
-
+			System.out.println("Added : " + file.getName() + " to " + zipName);
 			zos.putNextEntry(new ZipEntry(file.getName()));
 
 			byte[] bytes = Files.readAllBytes(Paths.get(filePath));
@@ -54,7 +54,9 @@ public class FileUtil {
 
 			for (String aFile : filePaths) {
 				zos.putNextEntry(new ZipEntry(new File(aFile).getName()));
-
+				String[] s = aFile.split(" ");
+				String fname = s[s.length - 1];
+				System.out.println("Added : " + fname + " to " + zipFileName);
 				byte[] bytes = Files.readAllBytes(Paths.get(aFile));
 				zos.write(bytes, 0, bytes.length);
 				zos.closeEntry();
