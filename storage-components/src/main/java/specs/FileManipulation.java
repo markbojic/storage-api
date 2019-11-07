@@ -49,4 +49,11 @@ public interface FileManipulation {
 	 */
 	public void uploadMultipleFilesZip(String[] filePaths, String destinationPath, String zipName, AbstractUser user);
 
+	public void setRoot(String root);
+	
+	public void setForbiddenExtensions(String[] forbiddenExtensions);
+	
+	public String getRoot();
+	
+	public String[] getForbiddenExtensions();
 }
