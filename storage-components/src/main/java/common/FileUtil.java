@@ -14,6 +14,7 @@ import java.util.zip.*;
 public class FileUtil {
 
 	/**
+	 * Zips file to archive with given name.
 	 * 
 	 * @param filePath    - Name of the file to zip
 	 * @param destination - Destination of the zip archive
@@ -41,6 +42,7 @@ public class FileUtil {
 	}
 
 	/**
+	 * Zips multiple files to archive with given name.
 	 * 
 	 * @param filePaths   - Array of files to be archived
 	 * @param destination - Destination path of the zip archive
@@ -71,15 +73,15 @@ public class FileUtil {
 		}
 	}
 
+	private static List<String> filesListInDir = new ArrayList<String>();
+
 	/**
 	 * This method zips the directory.
 	 * 
 	 * @param dir
+	 * @param destination
 	 * @param zipDirName
 	 */
-
-	private static List<String> filesListInDir = new ArrayList<String>();
-
 	public static void zipDirectory(File dir, String destination, String zipDirName) {
 		try {
 

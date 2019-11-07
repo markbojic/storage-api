@@ -74,18 +74,39 @@ public interface DirectoryManipulation {
 	public void uploadZipDirectory(String selectedPath, String destinationPath, AbstractUser user);
 
 	/**
+	 * Initializes storage.
 	 * 
-	 * @param storageName name of the sotrage
-	 * @param user        user who initiates the storage
+	 * @param storagePath Path of the storage
+	 * @param user        User who initiates the storage
 	 */
-	public void initStorage(String storageName, AbstractUser user);
+	public void initStorage(String storagePath, AbstractUser user);
 
+	/**
+	 * Used for setting root's path.
+	 * 
+	 * @param Root's path
+	 */
 	public void setRoot(String root);
 
-	public void setForbiddenExtensions(String[] forbiddenExtensions);
-
+	/**
+	 * Gets path of the root directory.
+	 * 
+	 * @return Path of the root directory
+	 */
 	public String getRoot();
 
+	/**
+	 * Used for setting forbidden extensions.
+	 * 
+	 * @param forbidden Forbidden extensions
+	 */
+	public void setForbiddenExtensions(String[] forbiddenExtensions);
+
+	/**
+	 * Gets array of forbidden extensions.
+	 * 
+	 * @return Array of forbidden extensions
+	 */
 	public String[] getForbiddenExtensions();
 
 }

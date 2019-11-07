@@ -3,7 +3,7 @@ package specs;
 import users.AbstractUser;
 
 public interface FileManipulation {
-	
+
 	/**
 	 * Creates new file on given path.
 	 * 
@@ -20,40 +20,60 @@ public interface FileManipulation {
 	 * @param user Current user
 	 */
 	public void deleteFile(String path, AbstractUser user);
-	
+
 	/**
 	 * Uploads file from selected path to desired path on storage.
 	 * 
-	 * @param selectedPath Path of chosen file
+	 * @param selectedPath    Path of chosen file
 	 * @param destinationPath Path where file will be stored
-	 * @param user Current user
+	 * @param user            Current user
 	 */
 	public void uploadFile(String selectedPath, String destinationPath, AbstractUser user);
-	
+
 	/**
 	 * Downloads file to given path.
 	 * 
-	 * @param selectedPath File's path on storage
+	 * @param selectedPath    File's path on storage
 	 * @param destinationPath Download file on this path
-	 * @param user Current user
+	 * @param user            Current user
 	 */
 	public void downloadFile(String selectedPath, String destinationPath, AbstractUser user);
-	
+
 	/**
 	 * Zips given files and uploads them.
 	 * 
-	 * @param filePaths Array of paths to files waiting to be zipped
+	 * @param filePaths       Array of paths to files waiting to be zipped
 	 * @param destinationPath Path to where the files will be stored once zipped
-	 * @param zipName Name of the zip archive
-	 * @param user Current user
+	 * @param zipName         Name of the zip archive
+	 * @param user            Current user
 	 */
 	public void uploadMultipleFilesZip(String[] filePaths, String destinationPath, String zipName, AbstractUser user);
 
+	/**
+	 * Used for setting root's path.
+	 * 
+	 * @param root Root path
+	 */
 	public void setRoot(String root);
-	
-	public void setForbiddenExtensions(String[] forbiddenExtensions);
-	
+
+	/**
+	 * Gets root's path.
+	 * 
+	 * @return Root path
+	 */
 	public String getRoot();
-	
+
+	/**
+	 * Used for setting forbidden extensions.
+	 * 
+	 * @param forbiddenExtensions Array of forbidden extensions
+	 */
+	public void setForbiddenExtensions(String[] forbiddenExtensions);
+
+	/**
+	 * Gets array of forbidden extensions.
+	 * 
+	 * @return Array of forbidden extensions
+	 */
 	public String[] getForbiddenExtensions();
 }

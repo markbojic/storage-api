@@ -5,19 +5,16 @@ public abstract class AbstractUser {
 	private String username;
 	private String password;
 	private boolean admin = false; // false po defaultu pa za admina setujemo na true
-	private boolean[] privileges;
-	// niz odredjuje koje privilegije ima korisnik
-	// [create, delete, upload, download]
-	// svi korisnici mogu da vide sadrzaj i rade listfiles...
+	private boolean[] privileges; // Array of user's privileges for [create, delete, upload, download]
 
-	
 	public AbstractUser(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
 	}
+
 	/**
-	 * Gets username of the user
+	 * Gets username of the user.
 	 * 
 	 * @return Username of the user
 	 */
@@ -25,10 +22,8 @@ public abstract class AbstractUser {
 		return username;
 	}
 
-	
-
 	/**
-	 * Gets password of the user
+	 * Gets password of the user.
 	 * 
 	 * @return Password of the user
 	 */
@@ -37,7 +32,7 @@ public abstract class AbstractUser {
 	}
 
 	/**
-	 * Checks if user is admin
+	 * Checks if user is admin.
 	 * 
 	 * @return Returns true if user is admin
 	 */
@@ -46,7 +41,7 @@ public abstract class AbstractUser {
 	}
 
 	/**
-	 * Used for setting user as admin of the storage
+	 * Used for setting user as admin of the storage.
 	 * 
 	 * @param admin True if user is admin
 	 */
@@ -55,7 +50,7 @@ public abstract class AbstractUser {
 	}
 
 	/**
-	 * Gets privileges of the user
+	 * Gets privileges of the user.
 	 * 
 	 * @return List of user's privileges
 	 */
@@ -64,7 +59,7 @@ public abstract class AbstractUser {
 	}
 
 	/**
-	 * Used for setting user's privileges
+	 * Used for setting user's privileges.
 	 * 
 	 * @param privileges List of user's privileges
 	 */
@@ -88,8 +83,6 @@ public abstract class AbstractUser {
 	 * 
 	 * @param username Username of the user you wish to delete
 	 * @param root     Root directory of the storage
-	 * @param token    access token used to access remote storage in case of remote
-	 *                 user
 	 */
 	public abstract void deleteUser(String username, String root);
 
